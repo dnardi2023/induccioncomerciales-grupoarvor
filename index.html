@@ -28,7 +28,10 @@ a{color:inherit}
 :focus-visible{outline:2.5px solid var(--orange);outline-offset:3px;border-radius:6px}
 
 /* ---------- GATE ---------- */
-.gate{position:fixed;inset:0;z-index:100;background:var(--ink);background-image:var(--aurora);display:grid;place-items:center;padding:24px}
+.gate{position:fixed;inset:0;z-index:100;background:var(--ink);background-image:var(--aurora);display:grid;place-items:center;padding:24px;overflow:hidden}
+.gate::before{content:"";position:absolute;inset:-14%;background-image:var(--aurora);opacity:.85;animation:drift 24s ease-in-out infinite;pointer-events:none}
+.gate-card{position:relative;z-index:2}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3%,2%,0) scale(1.1)}100%{transform:translate3d(0,0,0) scale(1)}}
 .gate.hide{display:none}
 .gate-card{max-width:440px;width:100%;text-align:center;color:var(--on-dark)}
 .gate .mark{font-family:"Sora";font-weight:800;letter-spacing:.32em;font-size:13px;color:var(--orange);margin-bottom:26px}
@@ -44,7 +47,8 @@ a{color:inherit}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;background:var(--ink);background-image:var(--aurora);color:var(--on-dark);padding:78px 24px 120px;overflow:hidden}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:120px;background:linear-gradient(to bottom,transparent,var(--bg))}
+.hero::before{content:"";position:absolute;inset:-14%;background-image:var(--aurora);opacity:.55;animation:drift 26s ease-in-out infinite;pointer-events:none;z-index:0}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:120px;background:linear-gradient(to bottom,transparent,var(--bg));z-index:1}
 .wrap{max-width:960px;margin:0 auto;position:relative;z-index:2}
 .hero .mark{font-family:"Sora";font-weight:800;letter-spacing:.34em;font-size:12.5px;color:#fff;opacity:.9}
 .hero-logo{width:124px;height:auto;display:block;opacity:.96}
@@ -71,7 +75,8 @@ a{color:inherit}
 
 .block{position:relative;padding-left:74px;margin-bottom:22px}
 .node{position:absolute;left:0;top:6px;width:56px;height:56px;border-radius:50%;background:#fff;border:3px solid var(--line);display:grid;place-items:center;font-family:"Sora";font-weight:800;font-size:18px;color:var(--muted-2);z-index:2;transition:all .35s}
-.block[data-state="active"] .node{border-color:var(--orange);color:var(--orange);box-shadow:0 0 0 6px rgba(244,112,32,.12)}
+.block[data-state="active"] .node{border-color:var(--orange);color:var(--orange);animation:pulsering 2.6s ease-out infinite}
+@keyframes pulsering{0%{box-shadow:0 0 0 4px rgba(244,112,32,.16)}60%{box-shadow:0 0 0 14px rgba(244,112,32,0)}100%{box-shadow:0 0 0 4px rgba(244,112,32,0)}}
 .block[data-state="done"] .node{border-color:transparent;color:#fff;background:linear-gradient(135deg,var(--teal),var(--blue) 55%,var(--orange))}
 .block[data-state="locked"] .node{background:var(--bg-2)}
 .node svg{width:22px;height:22px;fill:none;stroke-width:2.3}
@@ -82,7 +87,9 @@ a{color:inherit}
 .card-head{display:flex;align-items:center;gap:16px;padding:22px 24px;width:100%;text-align:left}
 .card-head:disabled{cursor:default}
 .card-head .tt{flex:1;min-width:0}
-.card-head h3{font-size:20px;font-weight:700;line-height:1.2}
+.card-head h3{font-size:20px;font-weight:700;line-height:1.2;transition:color .22s}
+.card-head:not(:disabled):hover h3{color:var(--orange-d)}
+.card-head:not(:disabled):hover .caret{stroke:var(--orange)}
 .card-head .sub{color:var(--muted);font-size:14px;margin-top:3px}
 .chip{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:100px;white-space:nowrap}
 .chip.locked{background:var(--bg-2);color:var(--muted-2)}
@@ -117,6 +124,8 @@ a{color:inherit}
 .ctable th{background:var(--ink);color:#fff;text-align:left;padding:10px 13px;font-family:"Sora";font-weight:600;font-size:12.5px}
 .ctable td{padding:10px 13px;border-top:1px solid var(--line)}
 .ctable tbody tr:nth-child(even){background:var(--bg)}
+.ctable tbody tr{transition:background .18s}
+.ctable tbody tr:hover{background:rgba(244,112,32,.07)}
 .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:11px;margin-top:14px}
 .vcard{border:1px solid var(--line);border-radius:12px;padding:14px 15px;background:#fff}
 .vcard h5{font-family:"Sora";font-size:14px;font-weight:700;margin-bottom:3px}
@@ -196,9 +205,45 @@ a{color:inherit}
 .ficha.kpi{border-top-color:var(--orange)} .ficha.kpi h5{color:var(--orange-d)}
 .ficha.doc{border-top-color:var(--ink)} .ficha.doc h5{color:var(--ink)}
 
+/* ---------- VALORES ---------- */
+.valgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:12px;margin-top:16px}
+.val{position:relative;border-radius:16px;padding:18px 18px 16px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s}
+.val::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--blue))}
+.val::after{content:"";position:absolute;right:-44px;top:-44px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(27,132,141,.16),transparent 70%);opacity:0;transform:scale(.85);transition:opacity .35s,transform .45s ease}
+.val:hover{transform:translateY(-4px);box-shadow:0 22px 42px -26px rgba(20,22,30,.5)}
+.val:hover::after{opacity:1;transform:scale(1.15)}
+.val b{font-family:"Sora";font-size:27px;font-weight:800;line-height:1;display:block;margin-bottom:9px;position:relative;background:linear-gradient(120deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.val h5{font-family:"Sora";font-size:15px;font-weight:700;margin-bottom:4px;position:relative}
+.val p{font-size:13px;color:var(--muted);line-height:1.5;position:relative}
+.val.g2::before{background:linear-gradient(90deg,var(--blue),var(--orange))}
+.val.g2 b{background:linear-gradient(120deg,var(--blue),var(--orange));-webkit-background-clip:text;background-clip:text}
+.val.g2::after{background:radial-gradient(circle,rgba(5,126,170,.17),transparent 70%)}
+.val.g3::before{background:linear-gradient(90deg,var(--orange-d),#F2A33C)}
+.val.g3 b{background:linear-gradient(120deg,var(--orange-d),#F2A33C);-webkit-background-clip:text;background-clip:text}
+.val.g3::after{background:radial-gradient(circle,rgba(244,112,32,.19),transparent 70%)}
+
+/* ---------- REVEAL AL SCROLL ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .62s cubic-bezier(.2,.7,.2,1),transform .62s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- BARRA DE PROGRESO DE LECTURA ---------- */
+#readbar{position:fixed;top:0;left:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,var(--teal),var(--blue) 45%,var(--orange));box-shadow:0 0 14px rgba(244,112,32,.45);transition:width .1s linear;pointer-events:none}
+
+/* ---------- ACCESIBILIDAD: menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce){
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .gate::before,.hero::before,.block[data-state="active"] .node{animation:none!important}
+  .perk,.stat,.val,.ficha,.eco,.flow .fs,.videoteca{transition:none!important}
+  html{scroll-behavior:auto}
+}
+
 /* ---------- FLUJO DE PROCESO ---------- */
 .flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.flow .fs{flex:1 1 132px;min-width:118px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;padding:10px 12px}
+.flow .fs{position:relative;flex:1 1 132px;min-width:118px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;padding:10px 12px;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.flow .fs:hover{transform:translateY(-3px);box-shadow:0 14px 28px -20px rgba(20,22,30,.5)}
+.flow .fs::after{content:"";position:absolute;right:-7px;top:50%;width:7px;height:7px;border-top:2px solid var(--muted-2);border-right:2px solid var(--muted-2);transform:translateY(-50%) rotate(45deg);opacity:.55}
+.flow .fs:last-child::after{display:none}
+@media(max-width:700px){.flow .fs::after{display:none}}
 .flow .fs b{display:block;font-family:"Sora";font-size:10.5px;font-weight:800;letter-spacing:.09em;color:var(--blue);margin-bottom:4px}
 .flow .fs span{font-size:12.8px;font-weight:600;line-height:1.35;display:block}
 .flow.o .fs{border-left-color:var(--orange)} .flow.o .fs b{color:var(--orange-d)}
@@ -242,7 +287,9 @@ a{color:inherit}
 .btn-done{background:#fff;border-color:var(--orange);color:var(--orange-d)}
 .btn-done:hover{background:rgba(244,112,32,.06)}
 .cp.done .btn-done{background:var(--ok);border-color:var(--ok);color:#fff;pointer-events:none}
-.btn-cta{background:var(--orange);color:#fff;box-shadow:0 8px 20px -8px rgba(244,112,32,.6)}
+.btn-cta{background:var(--orange);color:#fff;box-shadow:0 8px 20px -8px rgba(244,112,32,.6);position:relative;overflow:hidden}
+.btn-cta:not(.pending)::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-22deg);transition:left .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.btn-cta:not(.pending):hover::after{left:130%}
 .btn-cta:hover{background:var(--orange-d);transform:translateY(-1px)}
 .btn.pending{opacity:.7;border:1px dashed var(--muted-2)!important;background:#fff!important;color:var(--muted)!important;cursor:not-allowed;box-shadow:none}
 .btn.pending:hover{transform:none}
@@ -400,13 +447,13 @@ a{color:inherit}
 
             <h4>Nuestros valores</h4>
             <p>Son lo que nos mueve todos los días, en cada decisión y en cada trato:</p>
-            <div class="valres">
-              <div class="valitem"><b>01</b><div><h5>Pasión por el cliente</h5><p>Lo ponemos en el centro. Escuchamos, acompañamos y creamos experiencias memorables con cercanía real.</p></div></div>
-              <div class="valitem"><b>02</b><div><h5>Comunidad colaborativa</h5><p>Somos red. Creamos un lugar donde cada persona crece, se siente parte y multiplica valor con otros.</p></div></div>
-              <div class="valitem"><b>03</b><div><h5>Trabajo en equipo</h5><p>Lo mejor que hacemos, lo hacemos juntos. Nos cuidamos, nos potenciamos, nos desafiamos.</p></div></div>
-              <div class="valitem"><b>04</b><div><h5>Innovación continua</h5><p>Pensamos distinto para llegar más lejos. Ideas nuevas, soluciones simples y mentalidad abierta.</p></div></div>
-              <div class="valitem"><b>05</b><div><h5>Talento en acción</h5><p>Activamos lo mejor de cada persona. El talento no es lo que tenés, sino lo que hacés con eso.</p></div></div>
-              <div class="valitem"><b>06</b><div><h5>Mentalidad de crecimiento</h5><p>Crecemos con propósito. Aprendemos, evolucionamos y vamos por más, siempre en movimiento.</p></div></div>
+            <div class="valgrid">
+              <div class="val g1"><b>01</b><h5>Pasión por el cliente</h5><p>Lo ponemos en el centro. Escuchamos, acompañamos y creamos experiencias memorables con cercanía real.</p></div>
+              <div class="val g2"><b>02</b><h5>Comunidad colaborativa</h5><p>Somos red. Creamos un lugar donde cada persona crece, se siente parte y multiplica valor con otros.</p></div>
+              <div class="val g3"><b>03</b><h5>Trabajo en equipo</h5><p>Lo mejor que hacemos, lo hacemos juntos. Nos cuidamos, nos potenciamos, nos desafiamos.</p></div>
+              <div class="val g1"><b>04</b><h5>Innovación continua</h5><p>Pensamos distinto para llegar más lejos. Ideas nuevas, soluciones simples y mentalidad abierta.</p></div>
+              <div class="val g2"><b>05</b><h5>Talento en acción</h5><p>Activamos lo mejor de cada persona. El talento no es lo que tenés, sino lo que hacés con eso.</p></div>
+              <div class="val g3"><b>06</b><h5>Mentalidad de crecimiento</h5><p>Crecemos con propósito. Aprendemos, evolucionamos y vamos por más, siempre en movimiento.</p></div>
             </div>
 
             <h4>Por qué vas a querer quedarte</h4>
@@ -1033,8 +1080,41 @@ function render(){
 }
 
 function setOpen(el,open){ el.classList.toggle("open",open); }
-function refreshHeights(){ document.querySelectorAll(".block.open .card-body").forEach(b=>b.style.maxHeight=b.scrollHeight+"px");
-  document.querySelectorAll(".block:not(.open) .card-body").forEach(b=>b.style.maxHeight="0"); }
+
+/* Altura de los bloques desplegables.
+   Al terminar de abrirse, el bloque pasa a max-height:none para que NUNCA
+   recorte el contenido aunque cambie de alto despues (fuentes, imagenes,
+   grillas que se reacomodan). Al cerrarse vuelve a un valor concreto para
+   poder animar. */
+function refreshHeights(){
+  document.querySelectorAll(".block.open .card-body").forEach(b=>{
+    if(b.style.maxHeight!=="none") b.style.maxHeight=b.scrollHeight+"px";
+  });
+  document.querySelectorAll(".block:not(.open) .card-body").forEach(b=>{
+    if(b.style.maxHeight==="none"){ b.style.maxHeight=b.scrollHeight+"px"; void b.offsetHeight; }
+    b.style.maxHeight="0";
+  });
+}
+
+function wireHeights(){
+  document.querySelectorAll(".card-body").forEach(b=>{
+    b.addEventListener("transitionend",e=>{
+      if(e.propertyName!=="max-height") return;
+      if(b.closest(".block").classList.contains("open")) b.style.maxHeight="none";
+    });
+  });
+  if(window.ResizeObserver){
+    const ro=new ResizeObserver(()=>{
+      document.querySelectorAll(".block.open .card-body").forEach(b=>{
+        if(b.style.maxHeight!=="none") b.style.maxHeight=b.scrollHeight+"px";
+      });
+    });
+    document.querySelectorAll(".card-body-inner").forEach(el=>ro.observe(el));
+  }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(refreshHeights); }
+  window.addEventListener("load",refreshHeights);
+}
+wireHeights();
 
 function toggle(bi){
   const el=document.querySelector(`.block[data-bi="${bi}"]`);
@@ -1079,6 +1159,46 @@ function boot(){
 }
 boot();
 window.addEventListener("resize",refreshHeights);
+
+/* ---------------------------------------------------------------
+   Aparición progresiva de los elementos al entrar en pantalla.
+   Solo usa opacidad y desplazamiento: no altera el alto real de los
+   bloques, así que no interfiere con el cálculo de apertura.
+   --------------------------------------------------------------- */
+function initReveal(){
+  if(!("IntersectionObserver" in window)) return;
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const sel=".eco,.perk,.stat,.val,.ficha,.flow .fs,.step,.callout,.videoteca,.ctable,.seg-tag,.vgrid>*";
+  const els=Array.prototype.slice.call(document.querySelectorAll(sel));
+  els.forEach(e=>e.classList.add("rv"));
+  const io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      const el=en.target, par=el.parentElement;
+      const idx=par?Array.prototype.indexOf.call(par.children,el):0;
+      el.style.transitionDelay=(Math.min(idx,7)*70)+"ms";
+      el.classList.add("in");
+      io.unobserve(el);
+    });
+  },{rootMargin:"0px 0px -8% 0px",threshold:.06});
+  els.forEach(e=>io.observe(e));
+}
+initReveal();
+
+/* --------------------- Barra de progreso de lectura --------------------- */
+(function(){
+  const bar=document.createElement("div"); bar.id="readbar"; document.body.appendChild(bar);
+  let tick=false;
+  function upd(){
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,Math.max(0,window.scrollY/h*100)):0)+"%";
+    tick=false;
+  }
+  function onScroll(){ if(!tick){ tick=true; requestAnimationFrame(upd); } }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  window.addEventListener("resize",onScroll);
+  upd();
+})();
 </script>
 </body>
 </html>

@@ -136,6 +136,94 @@ a{color:inherit}
 .seg:first-of-type{border-top:none;padding-top:2px;margin-top:0}
 .seg-tag{font-family:"Sora";font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--ink);display:inline-block;padding:6px 13px;border-radius:8px;margin-bottom:14px}
 .seg-tag.fin{background:var(--teal)} .seg-tag.leg{background:var(--blue)} .seg-tag.crm{background:var(--orange)}
+/* ---------- ECOSISTEMA (tarjetas) ---------- */
+.ecogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(226px,1fr));gap:11px;margin-top:14px}
+.eco{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 16px 16px 18px;overflow:hidden;transition:transform .16s,box-shadow .16s,border-color .16s}
+.eco::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+.eco:hover{transform:translateY(-2px);box-shadow:0 14px 30px -20px rgba(20,22,30,.45);border-color:var(--muted-2)}
+.eco .sect{font-family:"Sora";font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-d)}
+.eco h5{font-family:"Sora";font-size:16px;font-weight:700;margin:5px 0 5px}
+.eco p{font-size:13px;color:var(--muted);line-height:1.5}
+.eco.fin::before{background:var(--teal)} .eco.fin .sect{color:var(--teal)}
+.eco.log::before{background:var(--blue)} .eco.log .sect{color:var(--blue)}
+.eco.srv::before{background:var(--ink)} .eco.srv .sect{color:var(--ink)}
+/* ---------- BENEFICIOS / PERKS ---------- */
+.perkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:12px;margin-top:16px}
+.perk{position:relative;border-radius:16px;padding:20px 18px 18px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s,border-color .24s}
+.perk::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--blue))}
+.perk::after{content:"";position:absolute;right:-46px;top:-46px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(27,132,141,.18),transparent 70%);opacity:0;transform:scale(.85);transition:opacity .35s,transform .45s ease}
+.perk:hover{transform:translateY(-4px);box-shadow:0 22px 42px -26px rgba(20,22,30,.55);border-color:rgba(0,0,0,.04)}
+.perk:hover::after{opacity:1;transform:scale(1.15)}
+.perk:hover .pico{transform:rotate(-7deg) scale(1.09)}
+.pico{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;margin-bottom:12px;position:relative;background:linear-gradient(140deg,var(--teal),var(--blue));transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+.pico svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.perk h5{font-family:"Sora";font-size:15px;font-weight:700;margin-bottom:4px;position:relative}
+.perk p{font-size:13px;color:var(--muted);line-height:1.5;position:relative}
+.perk.p2::before{background:linear-gradient(90deg,var(--blue),var(--orange))}
+.perk.p2 .pico{background:linear-gradient(140deg,var(--blue),var(--orange))}
+.perk.p2::after{background:radial-gradient(circle,rgba(5,126,170,.18),transparent 70%)}
+.perk.p3::before{background:linear-gradient(90deg,var(--orange-d),#F2A33C)}
+.perk.p3 .pico{background:linear-gradient(140deg,var(--orange-d),#F2A33C)}
+.perk.p3::after{background:radial-gradient(circle,rgba(244,112,32,.2),transparent 70%)}
+
+/* ---------- STATS (Arvor en números) ---------- */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:12px;margin-top:16px}
+.stat{position:relative;border-radius:16px;padding:18px 16px 16px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s}
+.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--blue))}
+.stat::after{content:"";position:absolute;right:-40px;bottom:-40px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(27,132,141,.16),transparent 70%);opacity:0;transform:scale(.85);transition:opacity .35s,transform .45s ease}
+.stat:hover{transform:translateY(-4px);box-shadow:0 22px 42px -26px rgba(20,22,30,.5)}
+.stat:hover::after{opacity:1;transform:scale(1.15)}
+.stat h5{font-family:"Sora";font-size:clamp(19px,3vw,23px);font-weight:800;margin-bottom:4px;position:relative;background:linear-gradient(120deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{font-size:12.5px;color:var(--muted);line-height:1.45;position:relative}
+.stat.s2::before{background:linear-gradient(90deg,var(--blue),var(--orange))}
+.stat.s2 h5{background:linear-gradient(120deg,var(--blue),var(--orange));-webkit-background-clip:text;background-clip:text}
+.stat.s2::after{background:radial-gradient(circle,rgba(5,126,170,.16),transparent 70%)}
+.stat.s3::before{background:linear-gradient(90deg,var(--orange-d),#F2A33C)}
+.stat.s3 h5{background:linear-gradient(120deg,var(--orange-d),#F2A33C);-webkit-background-clip:text;background-clip:text}
+.stat.s3::after{background:radial-gradient(circle,rgba(244,112,32,.18),transparent 70%)}
+.stat.s4::before{background:linear-gradient(90deg,var(--teal),var(--orange))}
+.stat.s4 h5{background:linear-gradient(120deg,var(--teal),var(--orange));-webkit-background-clip:text;background-clip:text}
+.stat.s4::after{background:radial-gradient(circle,rgba(27,132,141,.16),transparent 70%)}
+
+/* ---------- FICHA DE PROCESO ---------- */
+.fichagrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:11px;margin-top:14px}
+.ficha{position:relative;border-radius:14px;padding:14px 15px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.ficha:hover{transform:translateY(-3px);box-shadow:0 16px 32px -22px rgba(20,22,30,.45)}
+.ficha h5{font-family:"Sora";font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.ficha p{font-size:12.8px;color:var(--txt);line-height:1.45}
+.ficha.out{border-top-color:var(--blue)} .ficha.out h5{color:var(--blue)}
+.ficha.risk{border-top-color:var(--red)} .ficha.risk h5{color:var(--red)}
+.ficha.kpi{border-top-color:var(--orange)} .ficha.kpi h5{color:var(--orange-d)}
+.ficha.doc{border-top-color:var(--ink)} .ficha.doc h5{color:var(--ink)}
+
+/* ---------- FLUJO DE PROCESO ---------- */
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.flow .fs{flex:1 1 132px;min-width:118px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:10px;padding:10px 12px}
+.flow .fs b{display:block;font-family:"Sora";font-size:10.5px;font-weight:800;letter-spacing:.09em;color:var(--blue);margin-bottom:4px}
+.flow .fs span{font-size:12.8px;font-weight:600;line-height:1.35;display:block}
+.flow.o .fs{border-left-color:var(--orange)} .flow.o .fs b{color:var(--orange-d)}
+.flow.t .fs{border-left-color:var(--teal)} .flow.t .fs b{color:var(--teal)}
+
+/* ---------- PASOS ¿QUIÉN? / ¿CÓMO? ---------- */
+.steps{margin-top:12px;display:flex;flex-direction:column}
+.step{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.step:last-child{border-bottom:none}
+.step>i{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-family:"Sora";font-style:normal;font-weight:700;font-size:12.5px;display:grid;place-items:center;margin-top:2px}
+.step .who{font-family:"Sora";font-size:13px;font-weight:700;margin-bottom:3px}
+.step .how{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- VIDEOTECA ---------- */
+.videoteca{margin-top:16px;border-radius:14px;padding:19px 21px;background:var(--ink);background-image:var(--aurora);color:var(--on-dark);display:flex;gap:16px;align-items:flex-start;text-decoration:none;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.videoteca:hover{transform:translateY(-3px);box-shadow:0 24px 44px -26px rgba(20,22,30,.7)}
+.videoteca:hover .play{transform:scale(1.1)}
+.videoteca .play{transition:transform .22s cubic-bezier(.2,.7,.2,1)}
+.videoteca .go{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-family:"Sora";font-size:13px;font-weight:700;color:var(--orange)}
+.videoteca .go svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2}
+.videoteca .play{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:0 8px 22px -9px rgba(244,112,32,.85)}
+.videoteca .play svg{width:17px;height:17px;fill:#fff;stroke:none;margin-left:2px}
+.videoteca h5{font-family:"Sora";font-size:16px;font-weight:700;color:#fff;margin-bottom:5px}
+.videoteca p{font-size:13.5px;color:var(--on-dark-mut);line-height:1.55}
+
 
 /* checkpoint */
 .cp{margin-top:22px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-s);background:var(--bg)}
@@ -252,25 +340,63 @@ a{color:inherit}
             <div class="callout key"><div class="ct">Nuestro propósito</div><p>Conectamos a cada persona y organización con soluciones de movilidad que mejoran su vida y potencian su desarrollo, con <strong>confianza, cercanía y una experiencia única en la Patagonia</strong>.</p></div>
 
             <h4>Grupo Arvor en números</h4>
-            <div class="vgrid">
-              <div class="vcard"><h5>+40 años</h5><p>de trayectoria en la Patagonia.</p></div>
-              <div class="vcard"><h5>4 sectores</h5><p>automotriz, financiero, logística y oil &amp; gas.</p></div>
-              <div class="vcard"><h5>+9 unidades</h5><p>de negocio bajo una misma identidad.</p></div>
-              <div class="vcard"><h5>NQN · RN</h5><p>capacidad operativa en Neuquén y Río Negro.</p></div>
+            <div class="statgrid">
+              <div class="stat s1"><h5>+40 años</h5><p>de trayectoria en la Patagonia.</p></div>
+              <div class="stat s2"><h5>4 sectores</h5><p>automotriz, financiero, logística y oil &amp; gas.</p></div>
+              <div class="stat s3"><h5>Multiunidad</h5><p>varias empresas bajo una misma identidad.</p></div>
+              <div class="stat s4"><h5>NQN · RN</h5><p>capacidad operativa en Neuquén y Río Negro.</p></div>
             </div>
 
             <h4>Nuestro ecosistema</h4>
-            <p>Cada empresa tiene su propia identidad y su equipo, pero todas comparten la misma cultura:</p>
-            <ul>
-              <li><strong>Qi Drive</strong> — el polo de movilidad, que reúne a las marcas más innovadoras del mercado.</li>
-              <li><strong>Volkswagen Iruña</strong> — concesionaria oficial de Volkswagen en Neuquén y General Roca, entre las referentes de la red a nivel nacional.</li>
-              <li><strong>Autonet</strong> — el parque automotor multimarca más grande de la Patagonia, en 0 km y usados.</li>
-              <li><strong>Credinet</strong> — nuestro brazo financiero: crédito automotor y empresarial para clientes y la red comercial.</li>
-              <li><strong>Oil Bull</strong> — renting, logística y warehousing para la industria energética, con foco en Vaca Muerta.</li>
-              <li><strong>Hermes Group</strong> — inyección de químicos y servicios técnicos para la producción de hidrocarburos.</li>
-              <li><strong>Dao Sur</strong> — concesionario oficial de Chery.</li>
-              <li><strong>Energy Trucks</strong> — comercializadora oficial de Foton, con foco en flota pesada y movilidad de trabajo.</li>
-            </ul>
+            <p>Varias empresas, distintos sectores, una misma cultura. Cada unidad tiene su identidad y su equipo, pero todas trabajan con el mismo propósito y los mismos valores. Esto es lo que hay del otro lado de la puerta:</p>
+
+            <div class="ecogrid">
+              <div class="eco">
+                <div class="sect">Polo de movilidad</div>
+                <h5>Qi Drive</h5>
+                <p>La unidad de movilidad del grupo: reúne en un mismo lugar a las marcas más innovadoras del mercado, con foco en tecnología, diseño y vanguardia. Comercializa marcas como <strong>Chery</strong>, <strong>Foton</strong>, <strong>BYD</strong>, <strong>Jetour</strong>, <strong>BAIC</strong>, <strong>MG</strong>, <strong>Haval</strong>, <strong>Changan</strong> y <strong>Geely</strong>.</p>
+              </div>
+              <div class="eco">
+                <div class="sect">Automotriz · Volkswagen</div>
+                <h5>Iruña</h5>
+                <p>Concesionaria oficial de Volkswagen en Neuquén y General Roca, entre las referentes de la red a nivel nacional.</p>
+              </div>
+              <div class="eco">
+                <div class="sect">Automotriz · Multimarca</div>
+                <h5>Autonet</h5>
+                <p>El parque automotor multimarca más grande de la Patagonia, en 0 km y usados, con atención integral.</p>
+              </div>
+              <div class="eco">
+                <div class="sect">Automotriz · Chery</div>
+                <h5>Dao Sur</h5>
+                <p>Concesionario oficial de Chery: comercialización, posventa y respaldo de una de las marcas que más crece en el país.</p>
+              </div>
+              <div class="eco">
+                <div class="sect">Automotriz · Foton</div>
+                <h5>Energy Trucks</h5>
+                <p>Comercializadora oficial de Foton, con foco en flota pesada y movilidad de trabajo para la industria de la región.</p>
+              </div>
+              <div class="eco fin">
+                <div class="sect">Financiero</div>
+                <h5>Credinet</h5>
+                <p>Nuestro brazo financiero: crédito automotor y empresarial para clientes y para toda la red comercial.</p>
+              </div>
+              <div class="eco log">
+                <div class="sect">Logística · Oil &amp; Gas</div>
+                <h5>Oil Bull</h5>
+                <p>Renting, logística y warehousing para la industria energética, con infraestructura propia y foco en Vaca Muerta.</p>
+              </div>
+              <div class="eco log">
+                <div class="sect">Oil &amp; Gas</div>
+                <h5>Hermes Group</h5>
+                <p>Inyección de químicos y servicios técnicos para la producción de hidrocarburos en toda la cadena de valor.</p>
+              </div>
+              <div class="eco srv">
+                <div class="sect">Servicios · Planes de Ahorro</div>
+                <h5>Akira</h5>
+                <p>Business, Corporate &amp; Project Consulting: acompañamiento estratégico, gestión corporativa y desarrollo de proyectos. Es además nuestra comercializadora de <strong>Planes de Ahorro</strong>.</p>
+              </div>
+            </div>
 
             <h4>Nuestros valores</h4>
             <p>Son lo que nos mueve todos los días, en cada decisión y en cada trato:</p>
@@ -285,10 +411,22 @@ a{color:inherit}
 
             <h4>Por qué vas a querer quedarte</h4>
             <p>Las personas son el motor de nuestro éxito. Y hay algo que hace único a Arvor: <strong>entrás a una empresa y crecés en todo un grupo</strong>. Como somos muchas compañías, tu desarrollo no termina en un puesto ni en una unidad: lo que aprendés de un lado te abre puertas del otro.</p>
-            <div class="vgrid">
-              <div class="vcard"><h5>Desarrollo real</h5><p>Formación, feedback y caminos de crecimiento dentro de todo el grupo.</p></div>
-              <div class="vcard"><h5>Beneficios que cuidan</h5><p>Cobertura de salud, día de cumpleaños libre y reconocimientos que acompañan tu aporte.</p></div>
-              <div class="vcard"><h5>Cultura cercana</h5><p>Una comunidad colaborativa con espacios de encuentro, escucha e impacto real.</p></div>
+            <div class="perkgrid">
+              <div class="perk p1">
+                <div class="pico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div>
+                <h5>Desarrollo real</h5>
+                <p>Formación, feedback y caminos de crecimiento dentro de todo el grupo.</p>
+              </div>
+              <div class="perk p2">
+                <div class="pico"><svg viewBox="0 0 24 24"><path d="M20.8 6.6a5 5 0 0 0-7.1 0L12 8.3l-1.7-1.7a5 5 0 1 0-7.1 7.1l8.8 8.8 8.8-8.8a5 5 0 0 0 0-7.1z"/></svg></div>
+                <h5>Beneficios que cuidan</h5>
+                <p>Cobertura de salud, día de cumpleaños libre y reconocimientos que acompañan tu aporte.</p>
+              </div>
+              <div class="perk p3">
+                <div class="pico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+                <h5>Cultura cercana</h5>
+                <p>Una comunidad colaborativa con espacios de encuentro, escucha e impacto real.</p>
+              </div>
             </div>
 
             <div class="callout info"><div class="ct">Conocenos más de cerca</div><p>En nuestro espacio institucional vas a encontrar todo el mundo Arvor: nuestras empresas, marcas y novedades. Entrá, recorrelo con tiempo y después volvé para hacer el quiz de bienvenida.</p></div>
@@ -312,73 +450,265 @@ a{color:inherit}
       <div class="node"></div>
       <div class="card">
         <button class="card-head" onclick="toggle(1)">
-          <div class="tt"><h3>Calidad</h3><div class="sub">Mystery Shopper: la experiencia que dejamos en cada cliente</div></div>
+          <div class="tt"><h3>Calidad</h3><div class="sub">Compliance, políticas y procesos: el estándar con el que trabajamos</div></div>
           <span class="chip"></span>
           <svg class="caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="card-body"><div class="card-body-inner"><div class="divider"></div>
           <div class="prose">
-            <p>El <strong>Mystery Shopper</strong> es una evaluación en la que un cliente incógnito mide cómo atendemos. No busca controlarte: busca asegurar que cada persona que nos contacta viva una experiencia de excelencia. Conocer estos puntos es la mejor forma de aprobarlo con naturalidad, porque son, simplemente, la forma en que atendemos en Iruña.</p>
+            <p>Calidad no es un área que controla: es la forma en que trabajamos. Acá vas a encontrar nuestras políticas, cómo se ejecutan los procesos comerciales, las reglas de Compliance que nos protegen y, al final, cómo se mide todo eso en la experiencia real del cliente. Todo construido sobre la <strong>Norma ISO 9001:2015</strong> y el <strong>Código de Conducta</strong> interno y de Volkswagen.</p>
+            <div class="callout info">
+              <div class="ct">Aplica a toda nuestra red comercial</div>
+              <p>Muchos de estos procedimientos están documentados y certificados desde <strong>Iruña</strong>, porque es donde nacieron. Pero el estándar es el mismo para <strong>todas las unidades de comercialización del grupo</strong>: cambia la marca y cambia el salón, no la forma en que atendemos.</p>
+            </div>
 
-            <h4>Tiempos de respuesta máximos</h4>
-            <p>Según el canal por el que llega el cliente, este es el tiempo máximo que puede pasar hasta la primera respuesta:</p>
-            <table class="ctable">
-              <thead><tr><th>Canal</th><th>Tiempo de respuesta máximo</th></tr></thead>
-              <tbody>
-                <tr><td>Telefónico</td><td>Cuatro timbres — derivación en 15 segundos</td></tr>
-                <tr><td>Presencial</td><td>2 minutos</td></tr>
-                <tr><td>Página web / Mail</td><td>30 minutos</td></tr>
-                <tr><td>WhatsApp</td><td>30 minutos</td></tr>
-              </tbody>
-            </table>
+            <!-- ===== PARTE 1 · POLITICAS ===== -->
+            <div class="seg">
+              <div class="seg-tag leg">Parte 1 · Políticas</div>
 
-            <h4>Mystery Call — el teléfono</h4>
-            <ul>
-              <li>Dá una <strong>bienvenida correcta</strong>: "Buenos días/tardes/noches", identificándote con tu nombre y una oración de enlace ("¿en qué puedo ayudarlo?").</li>
-              <li><strong>Invitá al cliente al concesionario.</strong></li>
-            </ul>
+              <div class="callout key">
+                <div class="ct">Visión Iruña</div>
+                <p>Ser la empresa líder en el mercado automotriz, rentable y comprometida con la satisfacción del cliente y el bienestar de nuestra gente, alineada por Volkswagen en el marco de una elevada disciplina organizacional, profesionalismo y trabajo en equipo.</p>
+              </div>
 
-            <h4>Mystery Presencial — el salón</h4>
-            <ul>
-              <li>Los escritorios tienen que estar <strong>ordenados y prolijos</strong>.</li>
-              <li>El personal en contacto debe estar identificado con nombre, apellido y puesto (PIN).</li>
-              <li>Se entregan tarjetas personales (digital o física).</li>
-              <li>Se ofrece algo para beber.</li>
-              <li>Se presenta el vehículo de manera profesional (DDX, 5 tiempos).</li>
-            </ul>
+              <h4>Política de Respeto en el Ambiente Laboral</h4>
+              <p>Cómo nos tratamos entre nosotros, con clientes y con proveedores. Sin excepción.</p>
+              <ul>
+                <li><strong>Trato respetuoso:</strong> dignidad, amabilidad y cortesía hacia colegas, clientes y proveedores.</li>
+                <li><strong>Comunicación constructiva:</strong> abierta y honesta, sin agresividad ni discriminación.</li>
+                <li><strong>Ambiente inclusivo:</strong> queda prohibida la discriminación por raza, género, orientación sexual, religión, edad, discapacidad u origen.</li>
+                <li><strong>Privacidad y confidencialidad:</strong> protección de la información personal y profesional.</li>
+                <li><strong>Entorno seguro:</strong> libre de violencia, intimidación o acoso.</li>
+                <li><strong>Cumplimiento legal y ético:</strong> respeto a las leyes y a las políticas antidiscriminación.</li>
+              </ul>
+              <div class="callout warn">
+                <div class="ct">Responsabilidad y consecuencias</div>
+                <p>Los incumplimientos de esta política pueden derivar en sanciones, suspensiones o desvinculación.</p>
+              </div>
 
-            <h4>Mystery Mail — el correo</h4>
-            <ul>
-              <li>Los leads que ingresan por la web pueden responderse por otro medio.</li>
-              <li>Si es por mail, se responde con el <strong>dominio oficial @iruna.com.ar</strong>.</li>
-              <li>Buscá generar una comunicación más directa que la simple respuesta del mail, y adjuntá las <strong>fichas comparativas</strong> para que la información quede clara desde el primer mensaje.</li>
-            </ul>
+              <h4>Política de Seguridad, Higiene y Medio Ambiente</h4>
+              <p>Preservar la integridad de las personas y de los bienes, evitar accidentes y asumir actitudes seguras en el día a día.</p>
+              <ul>
+                <li>Cumplir las leyes de seguridad, salud ocupacional y medio ambiente.</li>
+                <li>Garantizar prácticas seguras de empleados y contratistas.</li>
+                <li>Evaluar el desempeño mediante auditorías internas y externas.</li>
+                <li>Promover la participación en los sistemas de gestión.</li>
+                <li>Fomentar el respeto y la comunicación abierta.</li>
+                <li>Colaborar con autoridades y comunidades.</li>
+                <li>Comunicar la política a todos los interesados.</li>
+              </ul>
+              <div class="callout info">
+                <div class="ct">Lo que se espera de vos</div>
+                <p>Aplicar las normas, usar los elementos de protección personal, mantener el orden y la limpieza de tu espacio de trabajo, y reportar los riesgos que detectes. La política se revisa periódicamente y se comunica de forma transparente.</p>
+              </div>
+            </div>
 
-            <h4>Mystery WhatsApp — el canal de todos los días</h4>
-            <ul>
-              <li>El perfil de WhatsApp debe ser acorde a la imagen de marca.</li>
-              <li>Presentate al inicio de la conversación.</li>
-              <li>Tomá los <strong>datos completos del cliente en la propuesta comercial de Salesforce</strong>: nombre y apellido, teléfono, correo y vehículo de interés. <span class="muted">(Si lo hace la anfitriona, igual consultá el nombre del cliente.)</span></li>
-              <li>Hacé una correcta detección de necesidades.</li>
-              <li>Informá sobre la <strong>tecnología</strong> y la <strong>seguridad</strong> del vehículo.</li>
-              <li>Informá las <strong>bonificaciones</strong> asociadas a realizar los servicios oficiales.</li>
-            </ul>
+            <!-- ===== PARTE 2 · PROCESOS DE VENTA ===== -->
+            <div class="seg">
+              <div class="seg-tag crm">Parte 2 · Procesos de Venta</div>
+              <p>Tres procesos certificados, cada uno con su misión y su flujo. Conocerlos es lo que hace que la operación sea trazable, auditable y prolija para el cliente.</p>
 
-            <h4>Cuestiones transversales — siempre, en todos los canales</h4>
-            <ul>
-              <li>Ofrecé una alternativa de financiación.</li>
-              <li>Entregá una propuesta comercial.</li>
-              <li>Ofrecé la prueba de manejo (se firma contrato y bitácora).</li>
-              <li>Contactá a los clientes luego de las 72 hs.</li>
-            </ul>
-            <div class="callout key"><div class="ct">Todo queda registrado en Salesforce</div><p>Toma de usados, ofrecimiento de test drive, datos del cliente, contactos y fecha de entrega: toda actualización debe quedar registrada en Salesforce. Es la regla que sostiene la calidad de la atención.</p></div>
+              <h4>Ventas · Pre-venta de unidades sin stock</h4>
+              <p><strong>Misión:</strong> reservar modelos sin stock mediante pre-ventas, desde la necesidad del cliente hasta la documentación comercial.</p>
+              <div class="flow o">
+                <div class="fs"><b>01</b><span>Seña</span></div>
+                <div class="fs"><b>02</b><span>Firma de pre-venta</span></div>
+                <div class="fs"><b>03</b><span>Aprobación</span></div>
+                <div class="fs"><b>04</b><span>Seguimiento</span></div>
+                <div class="fs"><b>05</b><span>Ingreso de stock</span></div>
+                <div class="fs"><b>06</b><span>Validación de pre-venta</span></div>
+                <div class="fs"><b>07</b><span>Boleto final</span></div>
+              </div>
+              <p style="margin-top:16px"><strong>Los pasos del Asesor Comercial al cerrar la venta:</strong></p>
+              <ul>
+                <li>Toma la seña al cliente por el vehículo a reservar.</li>
+                <li>Confecciona el <strong>boleto de pre-venta</strong> especificando la unidad a reservar, con hasta <strong>3 opciones de color</strong>.</li>
+                <li>El Gerente de Ventas o Supervisor aprueba la operación y deriva el boleto a Administración.</li>
+                <li>Administración hace el seguimiento de todas las pre-ventas para controlar el arribo de las unidades y el orden de la lista de espera.</li>
+                <li>Administración avisa al Gerente de Ventas cuando ingresan al stock las unidades en espera.</li>
+                <li>El asesor <strong>valida la venta con el cliente</strong>, confirmando color y modelo final.</li>
+                <li>El asesor confecciona el boleto de venta final.</li>
+              </ul>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Necesidad del cliente.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Boleto de preventa, lista de espera y boleto de venta.</p></div>
+                <div class="ficha risk"><h5>Riesgo identificado</h5><p>Demoras en el ingreso de stock que generen cambios de precio y hagan desistir al cliente.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>Tableros comerciales — análisis mensual de ventas. Responsable: Gerente de Ventas.</p></div>
+              </div>
+
+              <h4>Pre-Ventas · Generar leads desde Postventa</h4>
+              <p><strong>Misión:</strong> generar leads a partir de las visitas de clientes al taller. Una de las fuentes de oportunidad más subestimadas y más efectivas.</p>
+              <div class="flow">
+                <div class="fs"><b>01</b><span>Envío de la agenda</span></div>
+                <div class="fs"><b>02</b><span>Campaña de WhatsApp</span></div>
+                <div class="fs"><b>03</b><span>Carga del lead</span></div>
+                <div class="fs"><b>04</b><span>Agendamiento de la visita</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Asesora de citas</div><div class="how">Envía la agenda del taller con <strong>24 hs de anticipación</strong> a la Anfitriona del concesionario.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Anfitriona</div><div class="how">Elige a los clientes que vienen a hacer un servicio de más de <strong>30.000 km</strong> y les envía una campaña de WhatsApp invitándolos a un test drive o a conocer nuevos modelos. El registro se lleva en una planilla compartida con el Supervisor de Ventas.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Anfitriona</div><div class="how">Si el cliente acepta, carga el lead en <strong>Salesforce</strong> bajo el origen <strong>"Interacción PV"</strong> para que un asesor comercial lo contacte.</div></div></div>
+                <div class="step"><i>4</i><div><div class="who">Asesor comercial</div><div class="how">Confirma con el cliente el horario de su visita y gestiona el lead.</div></div></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Agenda de postventa y necesidades del cliente.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Lead cargado en Salesforce y boleto.</p></div>
+                <div class="ficha risk"><h5>Riesgo identificado</h5><p>No contar con el test drive que el cliente requiere.</p></div>
+                <div class="ficha doc"><h5>Documentos</h5><p>Boleto y planilla de interacción postventa.</p></div>
+              </div>
+
+              <h4>Test Drive · La prueba de manejo</h4>
+              <p><strong>Misión:</strong> registrar y controlar de forma sistemática todas las pruebas de manejo. Es el momento en que el cliente se enamora del auto —y también una operación con un vehículo de la empresa.</p>
+              <div class="flow t">
+                <div class="fs"><b>01</b><span>Contrato de comodato</span></div>
+                <div class="fs"><b>02</b><span>Ingreso en bitácora</span></div>
+                <div class="fs"><b>03</b><span>Prueba de manejo</span></div>
+                <div class="fs"><b>04</b><span>Salida en bitácora</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Asesor comercial</div><div class="how">Completa el <strong>contrato de comodato</strong> (primera y segunda página) y lo hace firmar por el cliente, indicándole el recorrido que se hará. Se anexa copia de la <strong>Licencia de Conducir</strong>. La documentación firmada se entrega a la Anfitriona, que la archiva.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Asesor comercial</div><div class="how">Completa la <strong>bitácora</strong> que le otorga la Anfitriona con los datos de salida (km, hora y quién se lleva la unidad) y la hace firmar por el cliente.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Asesor comercial</div><div class="how">Realiza la prueba de manejo junto al cliente, indicando las bondades y funcionalidades de la unidad presentada.</div></div></div>
+                <div class="step"><i>4</i><div><div class="who">Asesor comercial</div><div class="how">Completa los datos pendientes en la bitácora (hora y km de retorno) y la entrega a la Anfitriona para su guarda.</div></div></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Solicitud de Test Drive.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Satisfacción del cliente.</p></div>
+                <div class="ficha doc"><h5>Documentos</h5><p>Bitácora y contrato de comodato.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>% de cumplimiento — auditoría mensual de Test Drive. Responsable: RAD / Analista de Calidad.</p></div>
+              </div>
+              <div class="callout warn">
+                <div class="ct">Sin comodato y sin bitácora, no hay test drive</div>
+                <p>La auditoría mensual de Test Drive revisa justamente esto. Un vehículo que sale sin contrato firmado y sin registro deja a la empresa y al asesor sin ninguna cobertura.</p>
+              </div>
+            </div>
+
+            <!-- ===== PARTE 3 · COMPLIANCE ===== -->
+            <div class="seg">
+              <div class="seg-tag">Parte 3 · Compliance</div>
+              <p>Son las reglas que nos protegen a todos —a vos, al cliente y a la empresa— frente a situaciones sensibles.</p>
+
+              <h4>Tratamiento de Funcionarios Públicos</h4>
+              <p>Garantizar una interacción <strong>transparente y segura</strong>. Aplica en Ventas (<strong>FPICA-15</strong>) y en Postventa (<strong>FPrICA-03</strong>).</p>
+              <div class="flow">
+                <div class="fs"><b>01</b><span>Identificar si el cliente es Funcionario Público</span></div>
+                <div class="fs"><b>02</b><span>Informar la operación al Responsable Anticorrupción</span></div>
+                <div class="fs"><b>03</b><span>Evaluar el nivel de riesgo de la operación</span></div>
+                <div class="fs"><b>04</b><span>Aplicar los controles según la categoría</span></div>
+              </div>
+
+              <h4>Los controles según el rango</h4>
+              <table class="ctable">
+                <thead><tr><th>Categoría</th><th>Control que se aplica</th></tr></thead>
+                <tbody>
+                  <tr><td>Alto rango</td><td>Supervisión continua y atención especial a los pagos en efectivo</td></tr>
+                  <tr><td>Rango medio o bajo</td><td>Registro y revisión periódica</td></tr>
+                </tbody>
+              </table>
+              <p class="muted">Todas estas operaciones quedan en un registro diferenciado.</p>
+
+              <h4>Personas Políticamente Expuestas (PEP)</h4>
+              <p>El personal en contacto determina la categoría, informa los canales oficiales para solicitar turnos y brinda la atención según la disponibilidad habitual.</p>
+              <div class="callout key">
+                <div class="ct">El principio que no se negocia</div>
+                <p>Las Personas Políticamente Expuestas <strong>no reciben trato preferencial ni diferenciado</strong> respecto del resto de los clientes. Identificarlas sirve para registrar y controlar la operación, nunca para darles ventajas.</p>
+              </div>
+
+              <h4>Riesgos asociados</h4>
+              <ul>
+                <li>Sanciones previstas en la <strong>Ley 25.246</strong> y denuncias ante la <strong>UIF</strong>.</li>
+                <li>Documentos aplicables: Código de Conducta interno y de Volkswagen, Ley 25.246 y actas de directorio.</li>
+              </ul>
+
+              <h4>Canal de Denuncias</h4>
+              <p>Un canal anónimo para reportar cualquier situación que incumpla el Código de Conducta. Lo puede usar un colaborador, un cliente o un tercero.</p>
+              <div class="flow t">
+                <div class="fs"><b>01</b><span>Se detecta una situación irregular</span></div>
+                <div class="fs"><b>02</b><span>Se realiza la denuncia de forma anónima</span></div>
+                <div class="fs"><b>03</b><span>El Responsable Anticorrupción analiza el caso</span></div>
+                <div class="fs"><b>04</b><span>Se investigan los hechos y se implementan las acciones</span></div>
+              </div>
+              <div class="callout info">
+                <div class="ct">Cómo reportar · Sistema de Denuncias de Irregularidades</div>
+                <p>Correo electrónico: <strong>transparencia@iruna.com.ar</strong> — Referente Anticorrupción y de Compliance: <strong>Ricardo Millet</strong>. Para irregularidades relacionadas con el Código de Conducta del Grupo Volkswagen existe además el sistema propio de la marca, disponible por código QR en la cartelería interna.</p>
+              </div>
+              <p class="muted">El procedimiento de resolución de denuncias (<strong>FPrICA-02</strong>) sigue este mismo circuito hasta subsanar la problemática.</p>
+            </div>
+
+            <!-- ===== PARTE 4 · MYSTERY SHOPPER ===== -->
+            <div class="seg">
+              <div class="seg-tag fin">Parte 4 · Mystery Shopper</div>
+              <p>Hasta acá viste el estándar. El <strong>Mystery Shopper</strong> es cómo se mide: un cliente incógnito atraviesa nuestra atención y registra qué encontró. Conocer estos puntos es la mejor forma de aprobarlo con naturalidad, porque son, simplemente, la forma en que atendemos.</p>
+
+              <h4>Tiempos de respuesta máximos</h4>
+              <p>Según el canal por el que llega el cliente, este es el tiempo máximo que puede pasar hasta la primera respuesta:</p>
+              <table class="ctable">
+                <thead><tr><th>Canal</th><th>Tiempo de respuesta máximo</th></tr></thead>
+                <tbody>
+                  <tr><td>Telefónico</td><td>Cuatro timbres — derivación en 15 segundos</td></tr>
+                  <tr><td>Presencial</td><td>2 minutos</td></tr>
+                  <tr><td>Página web / Mail</td><td>30 minutos</td></tr>
+                  <tr><td>WhatsApp</td><td>30 minutos</td></tr>
+                </tbody>
+              </table>
+
+              <h4>Mystery Call — el teléfono</h4>
+              <ul>
+                <li>Dá una <strong>bienvenida correcta</strong>: "Buenos días/tardes/noches", identificándote con tu nombre y una oración de enlace ("¿en qué puedo ayudarlo?").</li>
+                <li><strong>Invitá al cliente al concesionario.</strong></li>
+              </ul>
+
+              <h4>Mystery Presencial — el salón</h4>
+              <ul>
+                <li>Los escritorios tienen que estar <strong>ordenados y prolijos</strong>.</li>
+                <li>El personal en contacto debe estar identificado con nombre, apellido y puesto (PIN).</li>
+                <li>Se entregan tarjetas personales (digital o física).</li>
+                <li>Se ofrece algo para beber.</li>
+                <li>Se presenta el vehículo de manera profesional (DDX, 5 tiempos).</li>
+              </ul>
+
+              <h4>Mystery Mail — el correo</h4>
+              <ul>
+                <li>Los leads que ingresan por la web pueden responderse por otro medio.</li>
+                <li>Si es por mail, se responde con el <strong>dominio oficial @iruna.com.ar</strong>.</li>
+                <li>Buscá generar una comunicación más directa que la simple respuesta del mail, y adjuntá las <strong>fichas comparativas</strong> para que la información quede clara desde el primer mensaje.</li>
+              </ul>
+
+              <h4>Mystery WhatsApp — el canal de todos los días</h4>
+              <ul>
+                <li>El perfil de WhatsApp debe ser acorde a la imagen de marca.</li>
+                <li>Presentate al inicio de la conversación.</li>
+                <li>Tomá los <strong>datos completos del cliente en la propuesta comercial de Salesforce</strong>: nombre y apellido, teléfono, correo y vehículo de interés. <span class="muted">(Si lo hace la anfitriona, igual consultá el nombre del cliente.)</span></li>
+                <li>Hacé una correcta detección de necesidades.</li>
+                <li>Informá sobre la <strong>tecnología</strong> y la <strong>seguridad</strong> del vehículo.</li>
+                <li>Informá las <strong>bonificaciones</strong> asociadas a realizar los servicios oficiales.</li>
+              </ul>
+
+              <h4>Cuestiones transversales — siempre, en todos los canales</h4>
+              <ul>
+                <li>Ofrecé una alternativa de financiación.</li>
+                <li>Entregá una propuesta comercial.</li>
+                <li>Ofrecé la prueba de manejo (se firma contrato y bitácora).</li>
+                <li>Contactá a los clientes luego de las 72 hs.</li>
+              </ul>
+              <div class="callout key"><div class="ct">Todo queda registrado en Salesforce</div><p>Toma de usados, ofrecimiento de test drive, datos del cliente, contactos y fecha de entrega: toda actualización debe quedar registrada en Salesforce. Es la regla que sostiene la calidad de la atención.</p></div>
+            </div>
+
+            <a class="videoteca" data-link="videosCalidad" target="_blank" rel="noopener">
+              <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <div>
+                <h5>Videoteca de Calidad</h5>
+                <p>Todo lo que acabás de leer, en situación. Son videos cortos que muestran cómo se ve en la práctica una atención que cumple el estándar: la bienvenida, la detección de necesidades, la presentación del vehículo y el cierre. Miralos después de recorrer el bloque, antes de hacer el quiz.</p>
+                <span class="go">Ver los videos <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </div>
+            </a>
           </div>
 
           <div class="cp" data-cp="c1">
             <div class="cp-q">Confirmá lo aprendido del módulo de Calidad</div>
-            <div class="cp-d">Hacé el quiz y después marcá el paso como completado.</div>
+            <div class="cp-d">Recorré la presentación completa, hacé el quiz y después marcá el paso como completado.</div>
             <div class="actions">
-              <a class="btn btn-ghost" data-link="materialCalidad" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Ver la presentación de Calidad</a>
+              <a class="btn btn-ghost" data-link="materialCalidad" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Ver la presentación completa</a>
               <a class="btn btn-quiz" data-link="quizCalidad" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> Hacer el quiz de Calidad</a>
               <button class="btn btn-done" onclick="markCp('c1')"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <span>Marcar como completado</span></button>
             </div>
@@ -611,7 +941,8 @@ a{color:inherit}
 const LINKS = {
   // --- Material de cada bloque (Drive / video) ---
   materialInstitucional: "https://linktr.ee/GrupoArvor",  // espacio institucional (Linktree)
-  materialCalidad:       "https://canva.link/bloquecalidad",  // presentación en Canva (conserva videos y audios)
+  materialCalidad:       "https://drive.google.com/drive/folders/1RSxowCcjcuYKCstYJKel0UFOk5Pa4a0V?usp=sharing",  // Bloques de Calidad (Drive)
+  videosCalidad:         "https://canva.link/bloquecalidad",  // ← REEMPLAZAR por el link real de Canva (videos)
   videoHyS:              "https://drive.google.com/drive/folders/1eS1VgVv0pjJqr3H0U9Q7TglZDB1LvXE2?usp=sharing",
   materialFinanciero:    "https://drive.google.com/drive/folders/1-LfP42pCIiJ12SxUkaSLXVeD9HV4ZZHe?usp=sharing",
   materialLegales:       "https://drive.google.com/drive/folders/1cOhoOj0EYqPuxxU_p3uGeSpekJdEpI8j?usp=sharing",

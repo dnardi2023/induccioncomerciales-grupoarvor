@@ -204,6 +204,44 @@ a{color:inherit}
 .ficha.risk{border-top-color:var(--red)} .ficha.risk h5{color:var(--red)}
 .ficha.kpi{border-top-color:var(--orange)} .ficha.kpi h5{color:var(--orange-d)}
 .ficha.doc{border-top-color:var(--ink)} .ficha.doc h5{color:var(--ink)}
+/* ---------- CADENA DE VALOR COMERCIAL ---------- */
+.cadena{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}
+.cadena .et{position:relative;border-radius:13px;padding:14px 12px 13px;color:#fff;overflow:hidden;transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s}
+.cadena .et:hover{transform:translateY(-4px);box-shadow:0 20px 38px -24px rgba(20,22,30,.65)}
+.cadena .et b{display:block;font-family:"Sora";font-size:10.5px;font-weight:800;letter-spacing:.1em;opacity:.72;margin-bottom:5px}
+.cadena .et span{font-family:"Sora";font-size:13.5px;font-weight:700;line-height:1.2;display:block}
+.cadena .e1{background:linear-gradient(140deg,#0F6E75,#1B848D)}
+.cadena .e2{background:linear-gradient(140deg,#1B848D,#0D7BA6)}
+.cadena .e3{background:linear-gradient(140deg,#057EAA,#3A6E8F)}
+.cadena .e4{background:linear-gradient(140deg,#8A6355,#D4692A)}
+.cadena .e5{background:linear-gradient(140deg,#E2641E,#F2A33C)}
+.cadena .et::after{content:"";position:absolute;right:-6px;top:50%;width:8px;height:8px;border-top:2px solid rgba(255,255,255,.6);border-right:2px solid rgba(255,255,255,.6);transform:translateY(-50%) rotate(45deg);z-index:3}
+.cadena .et:last-child::after{display:none}
+.mapa-lat{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:11px}
+.mapa-lat .mb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.mapa-lat .mb h5{font-family:"Sora";font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.mapa-lat .mb p{font-size:12.8px;color:var(--txt);line-height:1.45}
+@media(max-width:760px){
+  .cadena{grid-template-columns:1fr 1fr}
+  .cadena .et::after{display:none}
+  .mapa-lat{grid-template-columns:1fr}
+}
+
+/* ---------- MÉTODO DE 5 TIEMPOS ---------- */
+.tiempos{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.tiempos .tp{flex:1 1 128px;min-width:112px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 14px 8px 8px;transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s}
+.tiempos .tp:hover{transform:translateY(-3px);box-shadow:0 14px 28px -20px rgba(20,22,30,.5)}
+.tiempos .tp i{flex-shrink:0;width:27px;height:27px;border-radius:50%;background:linear-gradient(140deg,var(--blue),var(--teal));color:#fff;font-family:"Sora";font-style:normal;font-weight:800;font-size:12px;display:grid;place-items:center}
+.tiempos .tp span{font-size:12.8px;font-weight:600;line-height:1.3}
+
+/* ---------- CANALES DE VENTA ---------- */
+.canales{display:grid;grid-template-columns:repeat(auto-fit,minmax(244px,1fr));gap:12px;margin-top:14px}
+.canal{position:relative;border-radius:16px;padding:18px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .24s cubic-bezier(.2,.7,.2,1),box-shadow .24s}
+.canal::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--blue))}
+.canal:hover{transform:translateY(-4px);box-shadow:0 22px 42px -26px rgba(20,22,30,.5)}
+.canal h5{font-family:"Sora";font-size:15px;font-weight:700;margin-bottom:6px}
+.canal p{font-size:13px;color:var(--muted);line-height:1.5}
+.canal.c2::before{background:linear-gradient(90deg,var(--orange-d),#F2A33C)}
 
 /* ---------- VALORES ---------- */
 .valgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(214px,1fr));gap:12px;margin-top:16px}
@@ -503,7 +541,7 @@ a{color:inherit}
         </button>
         <div class="card-body"><div class="card-body-inner"><div class="divider"></div>
           <div class="prose">
-            <p>Calidad no es un área que controla: es la forma en que trabajamos. Acá vas a encontrar nuestras políticas, cómo se ejecutan los procesos comerciales, las reglas de Compliance que nos protegen y, al final, cómo se mide todo eso en la experiencia real del cliente. Todo construido sobre la <strong>Norma ISO 9001:2015</strong> y el <strong>Código de Conducta</strong> interno y de Volkswagen.</p>
+            <p>Calidad no es un área que controla: es la forma en que trabajamos. Acá vas a encontrar nuestras políticas, la cadena completa de procesos comerciales, las reglas de Compliance que nos protegen y, al final, cómo se mide todo eso en la experiencia real del cliente. Todo construido sobre la <strong>Norma ISO 9001:2015</strong> y el <strong>Código de Conducta</strong> interno y de Volkswagen.</p>
             <div class="callout info">
               <div class="ct">Aplica a toda nuestra red comercial</div>
               <p>Muchos de estos procedimientos están documentados y certificados desde <strong>Iruña</strong>, porque es donde nacieron. Pero el estándar es el mismo para <strong>todas las unidades de comercialización del grupo</strong>: cambia la marca y cambia el salón, no la forma en que atendemos.</p>
@@ -553,80 +591,169 @@ a{color:inherit}
             <!-- ===== PARTE 2 · PROCESOS DE VENTA ===== -->
             <div class="seg">
               <div class="seg-tag crm">Parte 2 · Procesos de Venta</div>
-              <p>Tres procesos certificados, cada uno con su misión y su flujo. Conocerlos es lo que hace que la operación sea trazable, auditable y prolija para el cliente.</p>
+              <p>El recorrido comercial completo, de punta a punta. No son procesos sueltos: son <strong>cinco etapas encadenadas</strong> que van desde que entra un lead hasta que el cliente vuelve. Cada una tiene su misión, su flujo y su forma correcta de ejecutarse.</p>
 
-              <h4>Ventas · Pre-venta de unidades sin stock</h4>
-              <p><strong>Misión:</strong> reservar modelos sin stock mediante pre-ventas, desde la necesidad del cliente hasta la documentación comercial.</p>
-              <div class="flow o">
-                <div class="fs"><b>01</b><span>Seña</span></div>
-                <div class="fs"><b>02</b><span>Firma de pre-venta</span></div>
-                <div class="fs"><b>03</b><span>Aprobación</span></div>
-                <div class="fs"><b>04</b><span>Seguimiento</span></div>
-                <div class="fs"><b>05</b><span>Ingreso de stock</span></div>
-                <div class="fs"><b>06</b><span>Validación de pre-venta</span></div>
-                <div class="fs"><b>07</b><span>Boleto final</span></div>
+              <h4>Mapa de procesos estratégicos de venta</h4>
+              <p>Todo arranca en una necesidad del cliente y termina en su satisfacción. En el medio, estos son los procesos operativos que atravesás:</p>
+              <div class="cadena">
+                <div class="et e1"><b>01</b><span>Captación</span></div>
+                <div class="et e2"><b>02</b><span>Experiencia</span></div>
+                <div class="et e3"><b>03</b><span>Negociación</span></div>
+                <div class="et e4"><b>04</b><span>Entrega</span></div>
+                <div class="et e5"><b>05</b><span>Lealtad</span></div>
               </div>
-              <p style="margin-top:16px"><strong>Los pasos del Asesor Comercial al cerrar la venta:</strong></p>
-              <ul>
-                <li>Toma la seña al cliente por el vehículo a reservar.</li>
-                <li>Confecciona el <strong>boleto de pre-venta</strong> especificando la unidad a reservar, con hasta <strong>3 opciones de color</strong>.</li>
-                <li>El Gerente de Ventas o Supervisor aprueba la operación y deriva el boleto a Administración.</li>
-                <li>Administración hace el seguimiento de todas las pre-ventas para controlar el arribo de las unidades y el orden de la lista de espera.</li>
-                <li>Administración avisa al Gerente de Ventas cuando ingresan al stock las unidades en espera.</li>
-                <li>El asesor <strong>valida la venta con el cliente</strong>, confirmando color y modelo final.</li>
-                <li>El asesor confecciona el boleto de venta final.</li>
-              </ul>
-              <div class="fichagrid">
-                <div class="ficha"><h5>Entradas</h5><p>Necesidad del cliente.</p></div>
-                <div class="ficha out"><h5>Salidas</h5><p>Boleto de preventa, lista de espera y boleto de venta.</p></div>
-                <div class="ficha risk"><h5>Riesgo identificado</h5><p>Demoras en el ingreso de stock que generen cambios de precio y hagan desistir al cliente.</p></div>
-                <div class="ficha kpi"><h5>Indicador</h5><p>Tableros comerciales — análisis mensual de ventas. Responsable: Gerente de Ventas.</p></div>
+              <div class="mapa-lat">
+                <div class="mb"><h5>Procesos estratégicos</h5><p>Volkswagen Argentina y la Dirección / Accionistas de Iruña S.A. marcan el rumbo que después baja a la operación.</p></div>
+                <div class="mb"><h5>Procesos soporte</h5><p>RRHH y Logística, Recursos y Sistemas, Interacción con Postventa y Marketing sostienen toda la cadena.</p></div>
               </div>
 
-              <h4>Pre-Ventas · Generar leads desde Postventa</h4>
-              <p><strong>Misión:</strong> generar leads a partir de las visitas de clientes al taller. Una de las fuentes de oportunidad más subestimadas y más efectivas.</p>
-              <div class="flow">
-                <div class="fs"><b>01</b><span>Envío de la agenda</span></div>
-                <div class="fs"><b>02</b><span>Campaña de WhatsApp</span></div>
-                <div class="fs"><b>03</b><span>Carga del lead</span></div>
-                <div class="fs"><b>04</b><span>Agendamiento de la visita</span></div>
-              </div>
-              <div class="steps">
-                <div class="step"><i>1</i><div><div class="who">Asesora de citas</div><div class="how">Envía la agenda del taller con <strong>24 hs de anticipación</strong> a la Anfitriona del concesionario.</div></div></div>
-                <div class="step"><i>2</i><div><div class="who">Anfitriona</div><div class="how">Elige a los clientes que vienen a hacer un servicio de más de <strong>30.000 km</strong> y les envía una campaña de WhatsApp invitándolos a un test drive o a conocer nuevos modelos. El registro se lleva en una planilla compartida con el Supervisor de Ventas.</div></div></div>
-                <div class="step"><i>3</i><div><div class="who">Anfitriona</div><div class="how">Si el cliente acepta, carga el lead en <strong>Salesforce</strong> bajo el origen <strong>"Interacción PV"</strong> para que un asesor comercial lo contacte.</div></div></div>
-                <div class="step"><i>4</i><div><div class="who">Asesor comercial</div><div class="how">Confirma con el cliente el horario de su visita y gestiona el lead.</div></div></div>
-              </div>
-              <div class="fichagrid">
-                <div class="ficha"><h5>Entradas</h5><p>Agenda de postventa y necesidades del cliente.</p></div>
-                <div class="ficha out"><h5>Salidas</h5><p>Lead cargado en Salesforce y boleto.</p></div>
-                <div class="ficha risk"><h5>Riesgo identificado</h5><p>No contar con el test drive que el cliente requiere.</p></div>
-                <div class="ficha doc"><h5>Documentos</h5><p>Boleto y planilla de interacción postventa.</p></div>
-              </div>
-
-              <h4>Test Drive · La prueba de manejo</h4>
-              <p><strong>Misión:</strong> registrar y controlar de forma sistemática todas las pruebas de manejo. Es el momento en que el cliente se enamora del auto —y también una operación con un vehículo de la empresa.</p>
+              <!-- ============ 1 · CAPTACIÓN ============ -->
+              <h4>01 · Captación del cliente</h4>
+              <p><strong>Misión:</strong> lograr un contacto efectivo con el cliente lo más rápido posible para identificar su necesidad, dar una respuesta oportuna y seguir el lead hasta su conversión o cierre.</p>
               <div class="flow t">
-                <div class="fs"><b>01</b><span>Contrato de comodato</span></div>
-                <div class="fs"><b>02</b><span>Ingreso en bitácora</span></div>
-                <div class="fs"><b>03</b><span>Prueba de manejo</span></div>
-                <div class="fs"><b>04</b><span>Salida en bitácora</span></div>
+                <div class="fs"><b>01</b><span>Visualización del lead</span></div>
+                <div class="fs"><b>02</b><span>Primer contacto</span></div>
+                <div class="fs"><b>03</b><span>Actualización del estado</span></div>
+                <div class="fs"><b>04</b><span>Seguimiento de la conversión</span></div>
               </div>
               <div class="steps">
-                <div class="step"><i>1</i><div><div class="who">Asesor comercial</div><div class="how">Completa el <strong>contrato de comodato</strong> (primera y segunda página) y lo hace firmar por el cliente, indicándole el recorrido que se hará. Se anexa copia de la <strong>Licencia de Conducir</strong>. La documentación firmada se entrega a la Anfitriona, que la archiva.</div></div></div>
-                <div class="step"><i>2</i><div><div class="who">Asesor comercial</div><div class="how">Completa la <strong>bitácora</strong> que le otorga la Anfitriona con los datos de salida (km, hora y quién se lleva la unidad) y la hace firmar por el cliente.</div></div></div>
-                <div class="step"><i>3</i><div><div class="who">Asesor comercial</div><div class="how">Realiza la prueba de manejo junto al cliente, indicando las bondades y funcionalidades de la unidad presentada.</div></div></div>
-                <div class="step"><i>4</i><div><div class="who">Asesor comercial</div><div class="how">Completa los datos pendientes en la bitácora (hora y km de retorno) y la entrega a la Anfitriona para su guarda.</div></div></div>
-              </div>
-              <div class="fichagrid">
-                <div class="ficha"><h5>Entradas</h5><p>Solicitud de Test Drive.</p></div>
-                <div class="ficha out"><h5>Salidas</h5><p>Satisfacción del cliente.</p></div>
-                <div class="ficha doc"><h5>Documentos</h5><p>Bitácora y contrato de comodato.</p></div>
-                <div class="ficha kpi"><h5>Indicador</h5><p>% de cumplimiento — auditoría mensual de Test Drive. Responsable: RAD / Analista de Calidad.</p></div>
+                <div class="step"><i>1</i><div><div class="who">Gerente de Ventas · Supervisor de Ventas · Herramienta automatizada</div><div class="how">Se realiza la recepción, asignación y visualización de los leads ingresados.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Asesor comercial · Anfitriona</div><div class="how">Visualiza el lead en el CRM y contacta al cliente en un <strong>máximo de 30 minutos</strong>, por el canal que este eligió. Durante el contacto indaga sus necesidades para conocer su perfil, sus intereses y determinar qué vehículo se adapta mejor. Si el cliente llega de forma presencial, la Anfitriona lo recibe en <strong>menos de 2 minutos</strong> y lo deriva a un Asesor Comercial. Para contactos no presenciales, el Asesor lo invita a visitar el concesionario o a una videollamada, según su preferencia.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Asesor comercial</div><div class="how">Brinda respuestas claras y profesionales y registra la gestión en el CRM para asegurar la continuidad del seguimiento. Debe cargar de manera obligatoria: <strong>teléfono, correo electrónico, domicilio (provincia y ciudad)</strong> y cada seguimiento que surja. El lead necesita un <strong>mínimo de 80 puntos</strong> para convertirse en oportunidad y avanzar con la cotización.</div></div></div>
+                <div class="step"><i>4</i><div><div class="who">Gerente de Ventas · Supervisor de Ventas</div><div class="how">Hacen seguimiento diario de la tasa de conversión y de otros indicadores: volumen de clientes potenciales, tasa de respuesta y origen de los clientes.</div></div></div>
               </div>
               <div class="callout warn">
-                <div class="ct">Sin comodato y sin bitácora, no hay test drive</div>
-                <p>La auditoría mensual de Test Drive revisa justamente esto. Un vehículo que sale sin contrato firmado y sin registro deja a la empresa y al asesor sin ninguna cobertura.</p>
+                <div class="ct">El reloj corre desde que entra el lead</div>
+                <p>Si a los <strong>10 minutos</strong> el lead no fue tomado, se dispara un mail automático al Supervisor de Ventas, al Gerente de Ventas, al RAD y al Gerente de Marketing. A los <strong>20 minutos</strong> vuelve a llegar una alerta.</p>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Lead.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Oportunidad, datos de gestión y conversación.</p></div>
+                <div class="ficha risk"><h5>Riesgos identificados</h5><p>No cumplir el tiempo de atención, no atender un prospecto, caída de la página web.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>Tasa de conversión, tiempos de primer contacto y auditorías internas. Responsable: Gerente y Supervisor de Ventas.</p></div>
+              </div>
+
+              <h4>Derivación del prospecto presencial</h4>
+              <p>Cuando el cliente entra al salón, la Anfitriona lo deriva de forma profesional al Asesor Comercial del canal que corresponda:</p>
+              <div class="flow">
+                <div class="fs"><b>01</b><span>Recepción cordial del cliente</span></div>
+                <div class="fs"><b>02</b><span>Indagación del canal</span></div>
+                <div class="fs"><b>03</b><span>Carga de datos en el CRM</span></div>
+                <div class="fs"><b>04</b><span>Identificación visual del asesor</span></div>
+                <div class="fs"><b>05</b><span>Derivación del prospecto</span></div>
+              </div>
+              <div class="canales">
+                <div class="canal c1">
+                  <h5>Plan de Ahorro</h5>
+                  <p>Financiación directa desde fábrica. A partir de la segunda cuota el cliente puede licitar o salir sorteado. Además contamos con planes de <strong>adjudicación asegurada</strong> de POLO, T-CROSS y NIVUS en las cuotas 8, 12 o 24, en planes 70/30.</p>
+                </div>
+                <div class="canal c2">
+                  <h5>Venta Tradicional · Venta Directa</h5>
+                  <p>Financiación de hasta el <strong>100% del valor</strong> de la unidad por crédito prendario o personal. Es la opción ideal para quienes buscan una compra directa y sin plazos de espera.</p>
+                </div>
+              </div>
+              <p class="muted">En ambos canales aceptamos vehículos usados a partir del año <strong>2015</strong> y hasta <strong>100.000 km</strong>, aplicando la metodología "llave por llave".</p>
+
+              <!-- ============ 2 · EXPERIENCIA ============ -->
+              <h4>02 · Experiencia</h4>
+              <p><strong>Misión:</strong> encantar al cliente a través de la presentación personalizada del producto.</p>
+              <div class="flow">
+                <div class="fs"><b>01</b><span>Presentación del vehículo</span></div>
+                <div class="fs"><b>02</b><span>Prueba de manejo</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Asesor Comercial</div><div class="how">Acompaña al cliente al vehículo de interés, que debe presentarse <strong>según su perfil</strong>. Si la unidad está en el concesionario, la presentación se hace con el <strong>método de 5 tiempos</strong>; si el vehículo no está en exposición, se usan herramientas digitales como <strong>DDX</strong> o el sitio de Volkswagen.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Asesor Comercial</div><div class="how">Durante la presentación invita al cliente a realizar una prueba de manejo. Si acepta, firman la <strong>bitácora de Test Drive</strong> que está en recepción y el <strong>contrato de comodato</strong>. Explica los principales atributos y funcionalidades del vehículo durante el recorrido.</div></div></div>
+              </div>
+
+              <h4>Método de presentación del vehículo en 5 tiempos</h4>
+              <p>El Asesor Comercial presenta de forma profesional, resaltando los beneficios del vehículo en este orden:</p>
+              <div class="tiempos">
+                <div class="tp"><i>1</i><span>Frente del vehículo</span></div>
+                <div class="tp"><i>2</i><span>Lado del pasajero</span></div>
+                <div class="tp"><i>3</i><span>Parte trasera</span></div>
+                <div class="tp"><i>4</i><span>Lado del conductor</span></div>
+                <div class="tp"><i>5</i><span>Interior del vehículo</span></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Necesidades del cliente.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Test Drive y presentación del vehículo.</p></div>
+                <div class="ficha risk"><h5>Riesgos identificados</h5><p>No hay Test Drive disponible, no hay conexión a internet para verlo en digital, el cliente no tiene carnet de conducir.</p></div>
+                <div class="ficha doc"><h5>Documentos</h5><p>Bitácora de Test Drive, contrato de comodato (con DNI y carnet) y actualización de la oportunidad en Salesforce.</p></div>
+              </div>
+              <div class="callout warn">
+                <div class="ct">Sin comodato y sin bitácora, no hay prueba de manejo</div>
+                <p>Un vehículo que sale sin contrato firmado y sin registro deja a la empresa y al asesor sin ninguna cobertura.</p>
+              </div>
+
+              <!-- ============ 3 · NEGOCIACIÓN ============ -->
+              <h4>03 · Negociación</h4>
+              <p><strong>Misión:</strong> establecer una relación de confianza y empatía con el cliente a través de una negociación transparente y ágil.</p>
+              <div class="flow o">
+                <div class="fs"><b>01</b><span>Elaboración de la oferta</span></div>
+                <div class="fs"><b>02</b><span>Métodos de pago</span></div>
+                <div class="fs"><b>03</b><span>Material descriptivo</span></div>
+                <div class="fs"><b>04</b><span>Firma del boleto</span></div>
+                <div class="fs"><b>05</b><span>Seguimiento de no cerrados</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Asesor comercial</div><div class="how">Elabora la oferta comercial tras analizar las mejores opciones que se adaptan a las exigencias del cliente, teniendo en cuenta los límites y las ofertas disponibles. La cotización se hace desde el <strong>CRM Salesforce</strong>.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Asesor comercial</div><div class="how">Presenta los métodos de pago disponibles: efectivo o acuerdos de financiamiento. Para financiación, ejecuta simulaciones con los bancos disponibles en el concesionario o en plataformas digitales. Si el cliente tiene un vehículo usado, le presenta el resultado de la evaluación con <strong>argumentos concretos y transparentes</strong>.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Asesor comercial</div><div class="how">Junto con la oferta, entrega la descripción del vehículo elegido con los detalles del producto: brochure, ficha técnica o material digital.</div></div></div>
+                <div class="step"><i>4</i><div><div class="who">Asesor comercial</div><div class="how">Si el cliente acepta la oferta, explica los términos, formalidades y condiciones de la venta, lo felicita y firman el boleto. Deja constancia en el CRM del boleto vendido para su posterior aprobación por el Gerente o Supervisor del área.</div></div></div>
+                <div class="step"><i>5</i><div><div class="who">Asesor comercial</div><div class="how">Durante el período de seguimiento envía contenido sobre el vehículo de interés a los clientes que todavía no cerraron la operación.</div></div></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Necesidades del cliente.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Oferta comercial y material gráfico.</p></div>
+                <div class="ficha risk"><h5>Riesgos identificados</h5><p>Tasas de interés demasiado altas, clientes no conformes con la oferta, quiebre de stock.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>Tasa de conversión de oportunidades y ventas mensuales por cantidad y rentabilidad. Responsable: Gerente y Supervisor de Ventas.</p></div>
+              </div>
+
+              <!-- ============ 4 · ENTREGA ============ -->
+              <h4>04 · Entrega</h4>
+              <p><strong>Misión:</strong> entregar al cliente un vehículo 0 km en óptimas condiciones, en un ambiente cordial y profesional.</p>
+              <div class="flow">
+                <div class="fs"><b>01</b><span>Descarga de App Mi VW</span></div>
+                <div class="fs"><b>02</b><span>Información pre-entrega</span></div>
+                <div class="fs"><b>03</b><span>Control del vehículo</span></div>
+                <div class="fs"><b>04</b><span>Entrega de la unidad</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Administrativa · Asesor de entregas</div><div class="how">Insta al cliente a descargar la <strong>App Mi VW</strong> y lo ayuda a crear el usuario, indicándole sus funcionalidades.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Administrativa · Ejecutiva de Venta de Accesorios · Administrativa de Logística</div><div class="how">En cada etapa, el responsable comunica el estado del trámite y deja registrado en el CRM todo lo conversado con el cliente. Para coordinar el turno se contacta al Administrativo de Logística según <strong>FPIL-05</strong>.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Asesor de Entregas · Administrativa de Logística</div><div class="how">Dentro de las <strong>24 hs previas</strong>, hace la verificación final de la unidad y registra que todos los componentes estén según lo solicitado: accesorios, pintura, balizas, kit de seguridad y llave de repuestos. También separa la documentación, la literatura a bordo y las facturas, y chequea que la unidad esté en perfecto estado de funcionamiento. El Administrativo de Logística confirma el turno con el cliente y lo reprograma si surge algún imprevisto; toda comunicación queda en el CRM. El día de la entrega se vuelve a chequear que todo esté en condiciones.</div></div></div>
+                <div class="step"><i>4</i><div><div class="who">Asesor de entregas</div><div class="how">Da la bienvenida al cliente y lo felicita. Entrega las llaves y la documentación, chequea la descarga de la App Mi VW y lo lleva al vehículo para presentarlo con el <strong>método de 5 tiempos</strong>. Hace firmar el <strong>COE</strong>, la Autorización de Entrega y la Autorización de Entrega de Salesforce, y entrega fotocopia del COE donde se detalla con qué viene la unidad. Por último informa sobre la encuesta que le harán desde el concesionario y desde VWA a través de <strong>CEM</strong>, y despide al cliente. El día del retiro deja registrada la fecha en el CRM.</div></div></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Boleto de venta.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Unidad vendida asignada con un chasis, factura de venta y documentación del vehículo.</p></div>
+                <div class="ficha risk"><h5>Riesgo identificado</h5><p>Que el vehículo no esté en condiciones de ser entregado.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>Unidades programadas y entregadas vs. re-turnadas, medidas por el turnero digital. Responsable: Coordinador de logística.</p></div>
+              </div>
+
+              <!-- ============ 5 · LEALTAD ============ -->
+              <h4>05 · Lealtad</h4>
+              <p><strong>Misión:</strong> interactuar con el cliente de manera proactiva para fortalecer la relación y generar nuevos negocios. La venta no termina cuando el cliente se lleva el auto.</p>
+              <div class="flow t">
+                <div class="fs"><b>01</b><span>Envío de felicitaciones</span></div>
+                <div class="fs"><b>02</b><span>Contacto luego de las 72 hs</span></div>
+                <div class="fs"><b>03</b><span>Contacto 2 veces al año</span></div>
+              </div>
+              <div class="steps">
+                <div class="step"><i>1</i><div><div class="who">Marketing</div><div class="how">Después de la entrega envía una nota de agradecimiento por la compra del 0 km.</div></div></div>
+                <div class="step"><i>2</i><div><div class="who">Asesor Comercial</div><div class="how">El asesor que vendió la unidad contacta al cliente <strong>dentro de las 72 hs</strong> de la entrega para saber si todo está bien. La actividad se registra en Salesforce.</div></div></div>
+                <div class="step"><i>3</i><div><div class="who">Marketing</div><div class="how">Envía promociones para mantener el contacto <strong>al menos 2 veces al año</strong>, recordando fechas especiales y el cumpleaños del vehículo para que el cliente recuerde hacer el servicio.</div></div></div>
+              </div>
+              <div class="fichagrid">
+                <div class="ficha"><h5>Entradas</h5><p>Entrega de la unidad.</p></div>
+                <div class="ficha out"><h5>Salidas</h5><p>Nota de agradecimiento, envío de promociones y carga de la entrega en Salesforce.</p></div>
+                <div class="ficha risk"><h5>Riesgo identificado</h5><p>Datos de contacto incorrectos.</p></div>
+                <div class="ficha kpi"><h5>Indicador</h5><p>Porcentaje de mails válidos obtenidos en Salesforce. Responsable: Responsable de Calidad.</p></div>
+              </div>
+              <div class="callout key">
+                <div class="ct">Por qué importa cargar bien los datos</div>
+                <p>Si el mail o el teléfono están mal cargados en la Captación, la Lealtad no existe: el cliente nunca recibe el agradecimiento, ni las promociones, ni el recordatorio del servicio. Los datos que tomás al principio sostienen toda la cadena.</p>
               </div>
             </div>
 
@@ -685,7 +812,7 @@ a{color:inherit}
             <!-- ===== PARTE 4 · MYSTERY SHOPPER ===== -->
             <div class="seg">
               <div class="seg-tag fin">Parte 4 · Mystery Shopper</div>
-              <p>Hasta acá viste el estándar. El <strong>Mystery Shopper</strong> es cómo se mide: un cliente incógnito atraviesa nuestra atención y registra qué encontró. Conocer estos puntos es la mejor forma de aprobarlo con naturalidad, porque son, simplemente, la forma en que atendemos.</p>
+              <p>Hasta acá viste el estándar. El <strong>Mystery Shopper</strong> es cómo se mide: un cliente incógnito atraviesa nuestra atención y registra qué encontró. Es uno de los indicadores formales de la etapa de Captación, junto con la tasa de conversión y los tiempos de primer contacto. Conocer estos puntos es la mejor forma de aprobarlo con naturalidad, porque son, simplemente, la forma en que atendemos.</p>
 
               <h4>Tiempos de respuesta máximos</h4>
               <p>Según el canal por el que llega el cliente, este es el tiempo máximo que puede pasar hasta la primera respuesta:</p>
@@ -1168,7 +1295,7 @@ window.addEventListener("resize",refreshHeights);
 function initReveal(){
   if(!("IntersectionObserver" in window)) return;
   if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const sel=".eco,.perk,.stat,.val,.ficha,.flow .fs,.step,.callout,.videoteca,.ctable,.seg-tag,.vgrid>*";
+  const sel=".eco,.perk,.stat,.val,.ficha,.flow .fs,.step,.callout,.videoteca,.ctable,.seg-tag,.cadena .et,.tiempos .tp,.canal,.mapa-lat .mb,.vgrid>*";
   const els=Array.prototype.slice.call(document.querySelectorAll(sel));
   els.forEach(e=>e.classList.add("rv"));
   const io=new IntersectionObserver(function(entries){
